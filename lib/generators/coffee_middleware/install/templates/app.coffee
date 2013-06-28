@@ -6,3 +6,5 @@ window.<%= js_app_name %> = {
   Models: {}
   Views:  {}
   }
+
+window.CoffeeMiddleware.Env = new CoffeeMiddleware.System.Env

@@ -1,8 +1,8 @@
-module Rocky
+module CoffeeMiddleware
   module Generators
     module ResourceHelpers
 
-      def rocky_path
+      def coffee_middleware_path
         "app/assets/javascripts/application"
       end
 

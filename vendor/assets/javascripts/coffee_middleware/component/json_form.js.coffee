@@ -1,4 +1,4 @@
-class Middleware.Component.JsonForm extends Middleware.System.Base
+class CoffeeMiddleware.Component.JsonForm extends CoffeeCoffeeMiddleware.System.Base
   constructor: (@container) ->
     super(@container)
     @initForm()
@@ -31,7 +31,7 @@ class Middleware.Component.JsonForm extends Middleware.System.Base
       @form.trigger("response:cancel")
 
   createResponse: (event, json) =>
-    if json[Middleware.Env.getSuccessStatus()] == true
+    if json[CoffeeMiddleware.Env.getSuccessStatus()] == true
       @form.trigger("response:success", json)
     else
       @form.trigger("response:error", json)

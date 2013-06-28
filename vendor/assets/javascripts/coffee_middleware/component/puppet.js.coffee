@@ -1,4 +1,4 @@
-class Middleware.Component.Puppet extends Middleware.System.Base
+class CoffeeMiddleware.Component.Puppet extends CoffeeMiddleware.System.Base
   constructor: (@container) ->
     super(@container)
     @initPage()
@@ -11,4 +11,4 @@ class Middleware.Component.Puppet extends Middleware.System.Base
     end
 
 jQuery ->
-  Middleware.Component.Puppet.bindMany("*[data-block=puppet_page]")
+  CoffeeMiddleware.Component.Puppet.bindMany("*[data-block=puppet_page]")

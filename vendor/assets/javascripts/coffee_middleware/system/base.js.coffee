@@ -1,4 +1,4 @@
-class Middleware.System.Base
+class CoffeeMiddleware.System.Base
 
   @bindMany: (selector) ->
     collection = []

@@ -1,4 +1,4 @@
-class Middleware.System.Env
+class CoffeeMiddleware.System.Env
   constructor: ->
     @successStatus = "success"
 

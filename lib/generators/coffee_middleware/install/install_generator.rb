@@ -1,20 +1,20 @@
-require "generators/rocky/resource_helpers"
+require "generators/coffee_middleware/resource_helpers"
 
-module Rocky
+module CoffeeMiddleware
   module Generators
     class InstallGenerator < Rails::Generators::Base
-      include Rocky::Generators::ResourceHelpers
+      include CoffeeMiddleware::Generators::ResourceHelpers
 
       source_root File.expand_path("../templates", __FILE__)
 
-      desc "This generator installs Rocky Middleware in app/assets/javascripts/application"
+      desc "This generator installs Coffee Middleware in app/assets/javascripts/application"
 
       class_option :skip_git, :type => :boolean, :aliases => "-G", :default => false,
                    :desc => "Skip Git ignores and keeps"
 
       def inject_middleware
         inject_into_file "app/assets/javascripts/application.js", :after => "//= require jquery_ujs" do
-          "\n//= require underscore\n//= require backbone\n//= require middleware\n//= require application/#{application_name.underscore}"
+          "\n//= require underscore\n//= require backbone\n//= require coffee_middleware\n//= require application/#{application_name.underscore}"
         end
       end
 

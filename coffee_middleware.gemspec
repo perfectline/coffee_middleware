@@ -2,16 +2,16 @@
 
 $:.push File.expand_path("../lib", __FILE__)
 
-require "rocky/version"
+require "coffee_middleware/version"
 
 Gem::Specification.new do |spec|
-  spec.name          = "rocky"
-  spec.version       = Rocky::VERSION
+  spec.name          = "Coffee Middleware"
+  spec.version       = CoffeeMiddleware::VERSION
   spec.authors       = ["Juri Semjonov"]
   spec.email         = ["juri.semjonov@gmail.com"]
-  spec.summary       = %q{Rocky CoffeeScript Middleware}
-  spec.description   = %q{Rocky CoffeeScript Middleware}
-  spec.homepage      = "https://github.com/Semjonow/rocky"
+  spec.summary       = %q{Coffee Middleware}
+  spec.description   = %q{Coffee Middleware}
+  spec.homepage      = "https://github.com/sportlr/coffee_middleware"
   spec.license       = "MIT"
 
   spec.files = Dir["{lib}/**/*"] + Dir["vendor/**/*"] + ["Rakefile", "README.md"]
@@ -19,7 +19,6 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency("coffee-script")
   spec.add_dependency("jquery-rails")
-  spec.add_dependency("rspec")
 
   spec.add_dependency "rake"
 end
