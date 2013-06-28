@@ -5,7 +5,7 @@ $:.push File.expand_path("../lib", __FILE__)
 require "coffee_middleware/version"
 
 Gem::Specification.new do |spec|
-  spec.name          = "Coffee Middleware"
+  spec.name          = "coffee_middleware"
   spec.version       = CoffeeMiddleware::VERSION
   spec.authors       = ["Juri Semjonov"]
   spec.email         = ["juri.semjonov@gmail.com"]
