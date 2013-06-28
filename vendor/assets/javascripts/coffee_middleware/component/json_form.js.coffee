@@ -1,4 +1,4 @@
-class CoffeeMiddleware.Component.JsonForm extends CoffeeCoffeeMiddleware.System.Base
+class CoffeeMiddleware.Component.JsonForm extends CoffeeMiddleware.System.Base
   constructor: (@container) ->
     super(@container)
     @initForm()
