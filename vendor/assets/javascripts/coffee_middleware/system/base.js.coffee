@@ -18,4 +18,3 @@ class CoffeeMiddleware.System.Base
     @.constructor(@.container)
 
   constructor: (@container) ->
-    _.extend(@, Backbone.Events)
