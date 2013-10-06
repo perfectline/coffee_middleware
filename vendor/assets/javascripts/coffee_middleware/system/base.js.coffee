@@ -1,5 +1,6 @@
 class CoffeeMiddleware.System.Base
 
+  # Bind many elements, each to its own class
   @bindMany: (selector) ->
     collection = []
     instance = @
@@ -10,9 +11,16 @@ class CoffeeMiddleware.System.Base
 
     collection
 
+  # Force only single element
   @bindOne: (selector) ->
     if $(selector).length > 0
       new @($(selector))
+
+  # Bind a collection of elements
+  @bindCollection: (selector) ->
+    if $(selector).length > 0
+      new @($(selector))
+
 
   reBind: =>
     @.constructor(@.container)
