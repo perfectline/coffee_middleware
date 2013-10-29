@@ -1,25 +1,25 @@
 class CoffeeMiddleware.System.Base
 
   # Bind many elements, each to its own class
-  @bindMany: (selector) ->
+  @bindMany: (selector, context = null) ->
     collection = []
     instance = @
 
-    if $(selector).length > 0
-      $(selector).each ->
+    if $(selector, context).length > 0
+      $(selector, context).each ->
         collection.push(new instance($(@)))
 
     collection
 
   # Force only single element
-  @bindOne: (selector) ->
-    if $(selector).length > 0
-      new @($(selector))
+  @bindOne: (selector, context = null) ->
+    if $(selector, context).length > 0
+      new @($(selector, context))
 
   # Bind a collection of elements
-  @bindCollection: (selector) ->
-    if $(selector).length > 0
-      new @($(selector))
+  @bindCollection: (selector, context = null) ->
+    if $(selector, context).length > 0
+      new @($(selector, context))
 
 
   reBind: =>
