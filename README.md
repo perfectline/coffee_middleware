@@ -2,14 +2,14 @@ CoffeeScript Middleware
 =======================
 
 This is a small CoffeeScript library to make binding your CoffeeScript classes to dom elements easier. 
-It also offers a helper class for using remote forms with rails and tries to make them more managable.
+It offers a helper class for using remote forms with rails and tries to make them more managable.
 
 Getting Started
 ===============
 
 Create application/application.js file in your app/assets/javascripts directory
 
-Also add folders models and views in your app/assets/javascripts/application directory
+Add directories 'models' and 'views' in your app/assets/javascripts/application directory
 
 In the application.js file add this. Replacing ApplicationName with the name of your application.
 
