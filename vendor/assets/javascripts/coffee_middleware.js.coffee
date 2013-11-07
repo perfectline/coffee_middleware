@@ -3,7 +3,8 @@
 #= require_tree ./coffee_middleware/component
 
 window.CoffeeMiddleware = {
-  Env:    {}
-  System: {}
+  Env:       {}
+  System:    {}
   Component: {}
-  }
+  Cache:     {}
+}

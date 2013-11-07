@@ -1,44 +1,54 @@
 class CoffeeMiddleware.Component.JsonForm extends CoffeeMiddleware.System.Base
-  constructor: (@container) ->
+  constructor: (@container, @autoAction = true) ->
     super(@container)
-    @initForm()
-
-  initForm: =>
-    if @container.prop("tagName") == "FORM"
+    if @container.is 'form'
       @form = @container
     else
-      @form = @container.find("form")
+      @form = ($ 'form', @container)
 
-    if @form.length == 0
-      return false
+    if @form[0]
+      @initForm()
 
-    @form.on "ajax:success",     @createResponse
+  initForm: =>
+    @form.on "ajax:success",     @handleResponse
     @form.on "response:success", @completeForm
     @form.on "response:error",   @updateForm
     @form.on "response:cancel",  @cancelForm
 
-    @submitButton = @form.find("*[data-action='submit']")
-    @submitButton.on "click", =>
+    @form.on 'submit', (e) =>
+      e.preventDefault()
+      e.stopPropagation()
       @form.trigger("submit.rails")
-
-    @form.find("input").keypress (e) =>
-      if e.which == 13
-        @form.trigger("submit.rails")
-        e.preventDefault()
 
     @cancelButton = @form.find("*[data-action='cancel']")
     @cancelButton.on "click", =>
       @form.trigger("response:cancel")
 
-  createResponse: (event, json) =>
-    if json[CoffeeMiddleware.Env.getSuccessStatus()] == true
-      @form.trigger("response:success", json)
+  handleResponse: (event, json) =>
+    if json.completed
+      @form.trigger 'response:success', json
     else
-      @form.trigger("response:error", json)
+      @form.trigger 'response:error', json
 
   completeForm: (event, json) =>
+    if @autoAction
+      if json.redirect
+        if json.redirect == 'root'
+          window.top.location = '/'
+        else
+          window.top.location = json.redirect
+      else if json.template
+        @form = $(json.template).replaceAll(@form)
+        @initForm()
+        @form.trigger('jsonForm:completed')
+    else
+      @form.trigger('jsonForm:completed')
 
   updateForm: (event, json) =>
+    if @autoAction
+      @form = $(json.template).replaceAll(@form)
+      @initForm()
+    @form.trigger('jsonForm:updated')
 
   cancelForm:  =>
     @container.remove()
