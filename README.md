@@ -71,7 +71,7 @@ JSON Form
 An example JSON form
 
 ```coffeescript
-class ApplicationName.Views.JsonForm extends CoffeeMiddleware.Component.JsonForm
+class ApplicationName.Views.ExampleForm extends CoffeeMiddleware.Component.JsonForm
   @selector: '*[data-json-form]'
   constructor: (@container) ->
     super
@@ -83,7 +83,7 @@ class ApplicationName.Views.JsonForm extends CoffeeMiddleware.Component.JsonForm
     super
 
 $ ->
-  ApplicationName.Views.JsonForm.init()
+  ApplicationName.Views.ExampleForm.init()
 ```
 
 Triggers completeForm when the JSON response for the remote form contain completed: true. Which means the submit was successful.
@@ -101,7 +101,7 @@ jsonForm:updated
 
 Your action should look something like this:
 ```ruby
-@resource = Resource.new(params[:resource])
+@resource = Resource.require(:resource).permit(:name, :description)  #if you want to only permit name and description
 if @resource.save
   respond_to do |format|
     format.json { render json: { completed: true, redirect: home_path } }
