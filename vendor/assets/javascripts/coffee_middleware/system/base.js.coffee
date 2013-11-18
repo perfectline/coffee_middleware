@@ -19,7 +19,7 @@ class CoffeeMiddleware.System.Base
       $(selector, context).each (index, element) =>
         el = $(element)
         if @caching
-          if @addToCache(instance.name, element)
+          if @addToCache(instance.hashCode(), element)
             collection.push(new instance(el))
         else
           collection.push(new instance(el))
@@ -31,7 +31,7 @@ class CoffeeMiddleware.System.Base
     if $(selector, context).length > 0
       el = $(selector, context)
       if @caching
-        if @addToCache(@.name, el[0])
+        if @addToCache(@.hashCode(), el[0])
           new @(el)
       else
         new @(el)
@@ -41,7 +41,7 @@ class CoffeeMiddleware.System.Base
     if $(selector, context).length > 0
       el = $(selector, context)
       if @caching
-        if @addToCache(@.name, el[0])
+        if @addToCache(@.hashCode(), el[0])
           new @(el)
       else
         new @(el)
@@ -76,6 +76,19 @@ class CoffeeMiddleware.System.Base
 
   @cacheContains: (name, element) ->
     element in CoffeeMiddleware.Cache[name]
+
+  @hashCode: ->
+    val = @.prototype.constructor.toString()
+    hash = 0
+
+    if val.length == 0 then return hash
+
+    for i in [0...val.length]
+      char = val.charCodeAt(i)
+      hash = ((hash<<5)-hash)+char
+      hash |= 0
+
+    hash
 
   reBind: =>
     @.constructor(@.container)
