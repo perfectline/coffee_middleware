@@ -1,8 +1,10 @@
 class CoffeeMiddleware.Component.JsonForm extends CoffeeMiddleware.System.Base
   constructor: (@container, @autoAction = true) ->
     super(@container)
+    @containerIsForm = false
     if @container.is 'form'
       @form = @container
+      @containerIsForm = true
     else
       @form = ($ 'form', @container)
 
@@ -39,6 +41,9 @@ class CoffeeMiddleware.Component.JsonForm extends CoffeeMiddleware.System.Base
           window.top.location = json.redirect
       else if json.template
         @form = $(json.template).replaceAll(@form)
+        if @containerIsForm
+          @container = @form
+          @reBind()
         @initForm()
         @form.trigger('jsonForm:completed')
     else
@@ -47,6 +52,9 @@ class CoffeeMiddleware.Component.JsonForm extends CoffeeMiddleware.System.Base
   updateForm: (event, json) =>
     if @autoAction
       @form = $(json.template).replaceAll(@form)
+      if @containerIsForm
+        @container = @form
+        @reBind()
       @initForm()
     @form.trigger('jsonForm:updated')
 
