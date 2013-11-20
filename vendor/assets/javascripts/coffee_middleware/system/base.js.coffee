@@ -56,7 +56,9 @@ class CoffeeMiddleware.System.Base
   @handleSubscriptions: ->
     for event in @subscribeTo
       ($ @scope).on event, (e) =>
-        @[@bindMethod].apply(@, [@selector, e.target])
+        parent = $(e.target).parent()
+        context = if parent.length > 0 then parent else e.target
+        @[@bindMethod].apply(@, [@selector, context])
 
 
   @addToCache: (name, element) ->
