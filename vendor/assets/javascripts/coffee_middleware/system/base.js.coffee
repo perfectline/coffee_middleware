@@ -92,6 +92,11 @@ class CoffeeMiddleware.System.Base
 
     hash
 
+  @clearCache: ->
+    for key, val of CoffeeMiddleware.Cache
+      delete CoffeeMiddleware.Cache[key]
+
+
   reBind: =>
     @.constructor(@.container)
 
