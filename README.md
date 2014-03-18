@@ -5,7 +5,7 @@ This is a small CoffeeScript library to make binding your CoffeeScript classes t
 It offers a helper class for using remote forms with rails and tries to make them more managable.
 
 Getting Started
-===============
+---------------
 
 Create application/application.js file in your app/assets/javascripts directory
 
@@ -66,7 +66,7 @@ validation, then receiving it back with errors you can still keep the custom for
 
 
 JSON Form
-=========
+---------
 
 An example JSON form
 
@@ -112,4 +112,21 @@ else
   end
 end
 ```
+
+
+Contributing
+------------
+
+We appreciate all contributions for features and bugfixes. Thanks!
+
+Credits
+-------
+
+Coffee Middleware is created and maintained by [PerfectLine](http://www.perfectline.co)
+
+License
+-------
+
+Coffee Middleware is Copyright © 2013-2014 PerfectLine, LLC. It is free software, and may be
+redistributed under the terms specified in the LICENSE file.
 
