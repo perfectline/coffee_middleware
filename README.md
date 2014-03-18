@@ -117,7 +117,7 @@ end
 Contributing
 ------------
 
-Big thanks to all the [contributors](https://github.com/perfectline/validates_url/contributors)! We appreciate all your work on new features and bugfixes.
+Big thanks to all the [contributors](https://github.com/perfectline/coffee_middleware/contributors)! We appreciate all your work on new features and bugfixes.
 
 Credits
 -------
