@@ -117,16 +117,16 @@ end
 Contributing
 ------------
 
-We appreciate all contributions for features and bugfixes. Thanks!
+Big thanks to all the [contributors](https://github.com/perfectline/validates_url/contributors)! We appreciate all your work on new features and bugfixes.
 
 Credits
 -------
 
-Coffee Middleware is created and maintained by [PerfectLine](http://www.perfectline.co)
+Coffee Middleware is created and maintained by [PerfectLine](http://www.perfectline.co), LLC.
 
 License
 -------
 
-Coffee Middleware is Copyright © 2013-2014 PerfectLine, LLC. It is free software, and may be
+Coffee Middleware is Copyright © 2013-2014 [PerfectLine](http://www.perfectline.co), LLC. It is free software, and may be
 redistributed under the terms specified in the LICENSE file.
 
